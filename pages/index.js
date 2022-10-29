@@ -4,7 +4,7 @@ import Meta from '../components/Meta'
 
 export async function getServerSideProps(context) {
 
-  const data = await fetch("http://localhost:1337/api/events?populate=%2A")
+  const data = await fetch("http://localhost:1337/api/events")
   const response = await data.json();
 
   return {

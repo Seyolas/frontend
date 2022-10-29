@@ -3,12 +3,12 @@ import SingleEvent from './SingleEvent'
 
 
 const Events = ({ data }) => {
+    console.log(data)
 
     return (
         <Container sx={{ my: 16 }}>
             <Grid container spacing={3} justifyContent="center" >
                 {data?.map((item) => {
-                    console.log(item)
                     return (
                         <Grid item>
                             <SingleEvent
