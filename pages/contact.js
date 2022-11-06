@@ -67,7 +67,6 @@ const Contact = () => {
                     display="flex"
                     flexDirection="column"
                     width={500}
-
                 >
 
                     <Box>
@@ -75,18 +74,18 @@ const Contact = () => {
                     </Box>
 
                     <Box my={1}>
-                        <TextField {...register("companyName", { required: true, maxLength: 70 })} fullWidth label="Şirket Adı" variant="outlined" size="small" />
+                        <TextField {...register("companyName", { required: true, maxLength: 70 })} fullWidth label="Şirket Adı*" variant="outlined" size="small" />
                     </Box>
                     <Box my={1}>
-                        <TextField {...register("companyUrl", { required: true, maxLength: 120 })} fullWidth label="Şirketiniz Web Sayfası" variant="outlined" size="small" />
-                    </Box>
-
-                    <Box my={1}>
-                        <TextField {...register("companyMail", { required: true, maxLength: 50 })} type="email" fullWidth label="Şirket Maili" variant="outlined" size="small" />
+                        <TextField {...register("companyUrl", { maxLength: 120 })} fullWidth label="Şirketiniz Web Sayfası" variant="outlined" size="small" />
                     </Box>
 
                     <Box my={1}>
-                        <TextField {...register("companyTel", { required: true, maxLength: 20 })} type="tel" fullWidth label="Tel No" variant="outlined" size="small" />
+                        <TextField {...register("companyMail", { required: true, maxLength: 50 })} type="email" fullWidth label="Şirket Maili*" variant="outlined" size="small" />
+                    </Box>
+
+                    <Box my={1}>
+                        <TextField {...register("companyTel", { maxLength: 20 })} type="tel" fullWidth label="Tel No" variant="outlined" size="small" />
 
                     </Box>
                     <Box display="flex" >
@@ -95,7 +94,7 @@ const Contact = () => {
                                 select
                                 fullWidth
                                 label="İlan Türü"
-                                defaultValue=''
+                                defaultValue='Staj'
                                 inputProps={register('type', {
                                     required: true,
                                 })}
@@ -106,7 +105,10 @@ const Contact = () => {
                                     </MenuItem>
                                 ))}
                             </TextField>
-                            {/* <FormControl sx={{ minWidth: 150 }}>
+                        </Box>
+                        <Box my={1} ml={3}>
+
+                            <FormControl sx={{ minWidth: 150 }}>
                                 <InputLabel >İlan Türü</InputLabel>
                                 <Select
                                     value={job}
@@ -119,8 +121,8 @@ const Contact = () => {
                                     <MenuItem value="İşyeri Eğitimi">İşyeri Eğitimi</MenuItem>
                                     <MenuItem value="İş İlanı">İş İlanı</MenuItem>
                                 </Select>
-                            </FormControl> */}
-                        </Box>
+                            </FormControl></Box>
+
                         <Box my={1} ml={3}>
                             {/* <FormControl sx={{ minWidth: 150 }}>
                                 <InputLabel >İlan Alt Başlığı(1)</InputLabel>
