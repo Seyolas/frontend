@@ -17,7 +17,7 @@ export default function Home({ response }) {
     <>
       <Meta />
       <Events data={response?.data} />
-
+      dsad
     </>
   )
 }
