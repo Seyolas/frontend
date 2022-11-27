@@ -1,10 +1,6 @@
-import { Box, Button, Container, TextField } from "@mui/material"
+import { Box, Button, Container, TextField, Snackbar, Alert } from "@mui/material"
 // 
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { useState } from "react";
 import { Theme, useTheme } from '@mui/material/styles';
 import { useForm } from "react-hook-form";
@@ -14,18 +10,35 @@ export async function getServerSideProps(context) {
     const data = await fetch("http://localhost:1337/api/all-field?populate=%2A")
     const response = await data.json();
 
+    const firstTagOptions = response?.data?.attributes?.firstField
+    const firstTagLabelElement = response?.data?.attributes?.firstField[0]?.item
+
+    const secondTagOptions = response?.data?.attributes?.secondField
+    const secondTagLabelElement = response?.data?.attributes?.secondField[0]?.item
+
     return {
-        props: { response }, // will be passed to the page component as props
+        props: {
+            firstTagOptions,
+            firstTagLabelElement,
+            secondTagOptions,
+            secondTagLabelElement
+        },
     }
 }
 
 
-const Contact = ({ response }) => {
+const Contact = ({ firstTagOptions, firstTagLabelElement, secondTagOptions, secondTagLabelElement }) => {
+
+    console.log(firstTagOptions)
+    console.log(firstTagLabelElement)
+    console.log(secondTagOptions);
+    console.log(secondTagLabelElement);
 
     const theme = useTheme();
     const [job, setJob] = useState('');
     const [labelOne, setLabelOne] = useState('');
     const [labelTwo, setLabelTwo] = useState('');
+    const [showSnackbar, setShowSnackbar] = useState(false);
 
 
     const handleJobTypeChange = (event) => {
@@ -40,7 +53,9 @@ const Contact = ({ response }) => {
     }
 
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        setShowSnackbar(true)
+    }
 
     const allTypes = [
         {
@@ -69,26 +84,26 @@ const Contact = ({ response }) => {
                     width={500}
                 >
 
-                    <Box>
+                    <Box my={1.5} >
                         <TextField {...register("firstName", { required: true, maxLength: 70 })} fullWidth label="İsim Soyisim*" variant="outlined" size="small" />
                     </Box>
 
-                    <Box my={1}>
+                    <Box my={1.5}>
                         <TextField {...register("companyName", { required: true, maxLength: 70 })} fullWidth label="Şirket Adı*" variant="outlined" size="small" />
                     </Box>
-                    <Box my={1}>
+                    <Box my={1.5}>
                         <TextField {...register("companyUrl", { maxLength: 120 })} fullWidth label="Şirketiniz Web Sayfası" variant="outlined" size="small" />
                     </Box>
 
-                    <Box my={1}>
+                    <Box my={1.5}>
                         <TextField {...register("companyMail", { required: true, maxLength: 50 })} type="email" fullWidth label="Şirket Maili*" variant="outlined" size="small" />
                     </Box>
 
-                    <Box my={1}>
+                    <Box my={1.5}>
                         <TextField {...register("companyTel", { maxLength: 20 })} type="tel" fullWidth label="Tel No" variant="outlined" size="small" />
 
                     </Box>
-                    <Box display="flex" >
+                    <Box display="flex" mb={2} >
                         <Box my={1}>
                             <TextField
                                 select
@@ -112,30 +127,31 @@ const Contact = ({ response }) => {
                                 select
                                 fullWidth
                                 label="İlan Alt Başlığı(1)"
-                                defaultValue='Ağ Mühendisi'
+                                defaultValue={firstTagLabelElement}
                                 inputProps={register('firstTag', {
                                     required: true,
                                 })}
                             >
-                                {response?.data?.attributes?.firstField?.map((element) => (
+                                {firstTagOptions.map((element) => (
                                     <MenuItem key={element?.id} value={element?.item}>
                                         {element?.item}
                                     </MenuItem>
                                 ))}
                             </TextField>
+
                         </Box>
 
                         <Box my={1} ml={2}>
                             <TextField
                                 select
                                 fullWidth
-                                label="Tech"
-                                defaultValue='Google Cloud'
+                                label="İlan Alt Başlığı(2)"
+                                defaultValue={secondTagLabelElement}
                                 inputProps={register('secondTag', {
                                     required: true,
                                 })}
                             >
-                                {response?.data?.attributes?.secondField?.map((element) => (
+                                {secondTagOptions.map((element) => (
                                     <MenuItem key={element?.id} value={element?.item}>
                                         {element?.item}
                                     </MenuItem>
@@ -147,6 +163,18 @@ const Contact = ({ response }) => {
 
                 </Box>
                 <Button type="submit" variant="outlined">Gönder</Button>
+                <Snackbar
+                    open={showSnackbar}
+                    onClose={() => setShowSnackbar(false)}
+                    autoHideDuration={5000}
+                    anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                    key="formSendSnackbar"
+                >
+                    <Alert sx={{ backgroundColor: "#edf7ed" }} variant="outlined" severity="success" color="success">
+                        İsteğinizi aldık. Yazmış olduğunuz mail üzerinden geri dönüş sağlayacağız.
+                    </Alert>
+
+                </Snackbar>
             </form>
         </Container>
 

@@ -7,7 +7,7 @@ const Events = ({ data }) => {
 
     return (
         <Container sx={{ my: 16 }}>
-            <Grid container spacing={3} justifyContent="center" >
+            <Grid container rowSpacing={5} columnSpacing={3} justifyContent="center" >
                 {data?.map((item) => {
                     return (
                         <Grid item>
