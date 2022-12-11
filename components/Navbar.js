@@ -11,7 +11,9 @@ const Navbar = () => {
         <AppBar sx={{
             backgroundColor: "#fff",
             boxShadow: "0px 1px 5px rgba(0,0,0,0.1)",
-            zIndex: 10
+            zIndex: 10,
+            position: "static",
+            top: 0
         }}>
             <Container maxWidth="lg">
                 <Box display="flex"

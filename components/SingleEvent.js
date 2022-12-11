@@ -1,10 +1,10 @@
 import { Box, Typography, Chip, Container } from '@mui/material'
 import Link from 'next/link'
 import dayjs from 'dayjs'
-const SingleEvent = ({ title, subtitle, deadline, image }) => {
+const SingleEvent = ({ id, title, subtitle, deadline, image, firstTag, secondTag }) => {
 
     return (
-        <Link href="/">
+        <Link href={`/${id}`}>
             <a>
                 <Box sx={{
                     width: "368px",
@@ -32,8 +32,8 @@ const SingleEvent = ({ title, subtitle, deadline, image }) => {
                             mr: 2
                         },
                     }}>
-                        <Chip clickable label="Chip Outlined" variant="outlined" />
-                        <Chip clickable label="Chip Outlined" variant="outlined" />
+                        <Chip label={firstTag} variant="outlined" />
+                        {secondTag && <Chip label={secondTag} variant="outlined" />}
                     </Box>
 
                     <Typography

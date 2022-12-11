@@ -3,20 +3,22 @@ import SingleEvent from './SingleEvent'
 
 
 const Events = ({ data }) => {
-    console.log(data)
 
     return (
-        <Container sx={{ my: 16 }}>
+        <Container sx={{ my: 4 }}>
             <Grid container rowSpacing={5} columnSpacing={3} justifyContent="center" >
-                {data?.map((item) => {
+                {data?.map((item, index) => {
                     return (
-                        <Grid item>
+                        <Grid item key={index}>
                             <SingleEvent
-                                key={item?.attributes?.id}
+                                key={item?.id}
+                                id={item?.id}
                                 title={item?.attributes?.title}
                                 image={item?.attributes?.image}
                                 subtitle={item?.attributes?.subtitle}
                                 deadline={item?.attributes?.deadline}
+                                firstTag={item?.attributes?.firstTag}
+                                secondTag={item?.attributes?.secondTag}
                             />
                         </Grid>
                     )
