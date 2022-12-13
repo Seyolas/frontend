@@ -19,6 +19,7 @@ const Events = ({ data }) => {
                                 deadline={item?.attributes?.deadline}
                                 firstTag={item?.attributes?.firstTag}
                                 secondTag={item?.attributes?.secondTag}
+                                eventType={item?.attributes?.eventType}
                             />
                         </Grid>
                     )

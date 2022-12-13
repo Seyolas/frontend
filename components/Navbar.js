@@ -37,13 +37,13 @@ const Navbar = () => {
                             </Link>
                         </Box>
                         <Box>
-                            <Button href="/" variant='text'>
+                            <Button href="/staj" variant='text'>
                                 Staj
                             </Button>
-                            <Button href="/" variant='text' >
+                            <Button href="/isyeri" variant='text' >
                                 İşyeri Eğitimi
                             </Button>
-                            <Button href="/" variant="text">
+                            <Button href="/is" variant="text">
                                 İş İlanları
                             </Button>
                         </Box>
