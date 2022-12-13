@@ -34,7 +34,7 @@ const SingleEvent = ({ id, title, subtitle, deadline, image, firstTag, secondTag
                     }}>
                         <Chip label={eventType} variant="outlined" color='primary' />
                         <Chip label={firstTag} variant="outlined" />
-                        {secondTag && <Chip label={secondTag} variant="outlined" />}
+                        {/* {secondTag && <Chip label={secondTag} variant="outlined" />} */}
                     </Box>
 
                     <Typography
