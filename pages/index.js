@@ -18,6 +18,7 @@ export default function Home({ response }) {
     <>
       <Meta />
       <Events data={response?.data} />
+      <h1>abc</h1>
     </>
   )
 }

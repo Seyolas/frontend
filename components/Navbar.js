@@ -25,8 +25,8 @@ const Navbar = () => {
                         alignItems="center"
                     >
                         <Box sx={{ mr: mobile ? 0 : 5 }}>
-                            <Link href="/">
-                                <a>
+                            <Link href="/" >
+                                <a data-testid="logo-link">
                                     <Image
                                         src="/firat_logo.png"
                                         alt="Firat Logo"
