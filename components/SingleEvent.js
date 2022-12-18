@@ -32,8 +32,8 @@ const SingleEvent = ({ id, title, subtitle, deadline, image, firstTag, secondTag
                             mr: 2
                         },
                     }}>
-                        <Chip label={eventType} variant="outlined" color='primary' />
-                        <Chip label={firstTag} variant="outlined" />
+                        <Chip label={eventType} variant="outlined" color='primary' data-testid="eventTypeChip" />
+                        <Chip label={firstTag} variant="outlined" data-testid="firstTypeChip" />
                         {/* {secondTag && <Chip label={secondTag} variant="outlined" />} */}
                     </Box>
 
@@ -47,7 +47,7 @@ const SingleEvent = ({ id, title, subtitle, deadline, image, firstTag, secondTag
                         alignItems="center"
                         justify="center"
                         paddingY={"10px"}
-                        bgcolor={"#64748b"}
+                        bgcolor={"#4b5563"}
                     >
                         Son Başvuru: {dayjs(deadline).format('DD/MM/YYYY')}</Typography>
                 </Box>

@@ -8,9 +8,8 @@ const Events = ({ data, notFoundText }) => {
     return (
         <Container sx={{ my: 4 }}>
             <Grid container rowSpacing={5} columnSpacing={3} justifyContent="center" >
-
                 {
-                    data.length != 0 ?
+                    data?.length != 0 ?
                         data?.map((item, index) => {
                             return (
                                 <Grid item key={index}>

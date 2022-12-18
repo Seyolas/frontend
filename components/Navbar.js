@@ -26,7 +26,7 @@ const Navbar = () => {
                     >
                         <Box sx={{ mr: mobile ? 0 : 5 }}>
                             <Link href="/" >
-                                <a data-testid="logo-link">
+                                <a data-testid="mainPageLink">
                                     <Image
                                         src="/firat_logo.png"
                                         alt="Firat Logo"
@@ -37,13 +37,13 @@ const Navbar = () => {
                             </Link>
                         </Box>
                         <Box>
-                            <Button href="/staj" variant='text'>
+                            <Button data-testid="stajPageLink" href="/staj" variant='text'>
                                 Staj
                             </Button>
-                            <Button href="/isyeri" variant='text' >
+                            <Button data-testid="isyeriPageLink" href="/isyeri" variant='text' >
                                 İşyeri Eğitimi
                             </Button>
-                            <Button href="/is" variant="text">
+                            <Button data-testid="isPageLink" href="/is" variant="text">
                                 İş İlanları
                             </Button>
                         </Box>
