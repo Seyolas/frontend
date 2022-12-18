@@ -16,9 +16,7 @@ export async function getServerSideProps({ query }) {
 }
 
 const EventDetail = ({ response }) => {
-    console.log(response)
-    const { applicationCriteria } = response?.data?.attributes
-    console.log(applicationCriteria)
+    const rictText = response?.data?.attributes?.applicationCriteria
 
 
     return (
@@ -27,7 +25,7 @@ const EventDetail = ({ response }) => {
                 <Box py={5}>
                     <Typography
                         component="div"
-                        dangerouslySetInnerHTML={{ __html: applicationCriteria }} />
+                        dangerouslySetInnerHTML={{ __html: rictText }} />
                     <Typography align='center'>
                         <Button
                             color='primary'

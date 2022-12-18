@@ -14,7 +14,6 @@ export async function getServerSideProps(context) {
 }
 
 export default function Home({ response }) {
-  console.log(response)
   return (
     <Layout>
       <Meta />
