@@ -1,5 +1,7 @@
 
 import Events from '../components/Events';
+import Layout from '../components/Layout';
+
 
 export async function getServerSideProps(context) {
 
@@ -13,10 +15,11 @@ export async function getServerSideProps(context) {
 
 
 const is = ({ response }) => {
+    const noEventSlug = "İş İlanı"
     return (
-        <>
-            <Events data={response?.data} />
-        </>
+        <Layout>
+            <Events notFoundText={noEventSlug} data={response?.data} />
+        </Layout>
     )
 }
 

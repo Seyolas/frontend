@@ -1,4 +1,5 @@
 import Events from '../components/Events';
+import Layout from '../components/Layout';
 import Meta from '../components/Meta'
 
 
@@ -15,9 +16,9 @@ export async function getServerSideProps(context) {
 export default function Home({ response }) {
   console.log(response)
   return (
-    <>
+    <Layout>
       <Meta />
       <Events data={response?.data} />
-    </>
+    </Layout>
   )
 }
