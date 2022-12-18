@@ -1,5 +1,5 @@
-import { Box, Container } from "@mui/material"
-
+import { Box, Button, Container, Typography } from "@mui/material"
+import Layout from "../components/Layout";
 
 export async function getServerSideProps({ query }) {
 
@@ -16,14 +16,30 @@ export async function getServerSideProps({ query }) {
 }
 
 const EventDetail = ({ response }) => {
-    console.log(response)
+    const rictText = response?.data?.attributes?.applicationCriteria
+
 
     return (
-        <Container maxWidth="lg">
-            <Box>
-                dsadas
-            </Box>
-        </Container>
+        <Layout noBanner>
+            <Container maxWidth="lg">
+                <Box py={5}>
+                    <Typography
+                        component="div"
+                        dangerouslySetInnerHTML={{ __html: rictText }} />
+                    <Typography align='center'>
+                        <Button
+                            color='primary'
+                            size='large'
+                            type='submit'
+                            variant='contained'
+                        >
+                            Başvur
+                        </Button>
+                    </Typography>
+                </Box>
+            </Container>
+        </Layout>
+
     )
 }
 
