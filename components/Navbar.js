@@ -46,6 +46,9 @@ const Navbar = () => {
                             <Button data-testid="isPageLink" href="/is" variant="text">
                                 İş İlanları
                             </Button>
+                            <Button data-testid="okuLink" href="/oku" variant="text">
+                                BİLGİ
+                            </Button>
                         </Box>
                     </Box>
 

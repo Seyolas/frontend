@@ -17,12 +17,12 @@ export async function getServerSideProps({ query }) {
 
 const EventDetail = ({ response }) => {
     const rictText = response?.data?.attributes?.applicationCriteria
-
+    const link = response?.data?.attributes?.link
 
     return (
         <Layout noBanner>
             <Container maxWidth="lg">
-                <Box py={5}>
+                <Box pt={5}>
                     <Typography
                         component="div"
                         dangerouslySetInnerHTML={{ __html: rictText }} />
@@ -32,6 +32,8 @@ const EventDetail = ({ response }) => {
                             size='large'
                             type='submit'
                             variant='contained'
+                            href={link}
+                            target="_blank"
                         >
                             Başvur
                         </Button>
