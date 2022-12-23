@@ -59,9 +59,6 @@ const oku = () => {
                         <li>"NO RESPONSE" VE "NO RESPONSE AGAIN" konulu gönderilen maillerin
                             belirtilen bekleme süresini beklemeden gönderdiği anlaşılanlar,</li>
                         <li>Konu kısmını belirtilen şekillerde yazmayıp bunu 3 kere tekrar edenler,</li>
-                        <li>Zaten Black List'e düştüm başvuru yapamıyorum. Başvuruyu yayınlayan şirketi öğrendim
-                            şimdi gidip kendim başvuru yapacağım" diyorsan denemesi bedava.
-                        </li>
                     </ul>
 
                 </Typography>
